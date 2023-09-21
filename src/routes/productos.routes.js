@@ -1,10 +1,20 @@
 //aqui van las rutas que se deben unir con el index y se trabajan en conjunto con los controllers. POr ejemplo:
 
 import { Router } from "express";
-import { listarProductos } from "../controllers/productos.controllers.js";
+import {
+  createProducts,
+  deleteProducts,
+  editProducts,
+  obtainProducts,
+  tolistProducts,
+} from "../controllers/products.controllers.js";
 
 const router = Router();
-//de momento solo recibe solicitudes get
-router.route("/producto").get(listarProductos);
 
+router.route("/product").get(tolistProducts).post(createProducts);
+router
+  .route("/product/:id")
+  .put(editProducts)
+  .delete(deleteProducts)
+  .get(obtainProducts);
 export default router;
