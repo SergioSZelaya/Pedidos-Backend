@@ -2,18 +2,19 @@ import mongoose, { Schema } from "mongoose";
 
 const orderSchema = new Schema({
   user: {
-    type: { type: String },
+    type: String,
     required: true,
     unique: true,
     minLength: 4,
     maxLength: 12,
   },
   date: {
-    type: { type: Date, default: Date.now },
+    type: Date,
+    default: Date.now,
     required: true,
   },
-  menuProducts: {
-    type: { type: String },
+  products: {
+    type: String,
     required: true,
     validate: {
       validator: function (products) {
@@ -26,13 +27,17 @@ const orderSchema = new Schema({
     },
   },
   cost: {
-    type: { type: Number },
+    type: Number,
     required: true,
   },
+
   state: {
-    type: { type: String },
+    type: String,
     required: true,
   },
 });
 
+//genero modelo
 const Order = mongoose.model("order", orderSchema);
+
+export default Order;
