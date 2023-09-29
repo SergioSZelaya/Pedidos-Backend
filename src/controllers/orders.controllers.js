@@ -67,3 +67,19 @@ export const eraseOrders = async (req, res) => {
     });
   }
 };
+
+export const getOrders = async (req, res) => {
+  try {
+    const searchOrder = await Order.findById(req.params.idOrder);
+    if (searchOrder == null) {
+      res.status(200).json({
+        mensaje: "El pedido que usted busca ya se eliminó",
+      });
+    } else res.status(200).json(searchOrder);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "No se pudo obtener el pedido",
+    });
+  }
+};
