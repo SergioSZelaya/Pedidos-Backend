@@ -33,3 +33,37 @@ export const createOrders = async (req, res) => {
     });
   }
 };
+
+export const editOrders = async (req, res) => {
+  try {
+    //ir a la bd y pedir los productos
+    //aqui los datos deberian estar validados
+    //extraer parametro ID de la ruta
+
+    await Order.findByIdAndUpdate(req.params.idOrder, req.body);
+
+    res.status(200).json({
+      mensaje: "El pedido se editó correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      mensaje: "El pedido no se pudo editar",
+    });
+  }
+};
+
+export const eraseOrders = async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.idOrder);
+
+    res.status(200).json({
+      mensaje: "El pedido se eliminó correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      mensaje: "El pedido no se pudo eliminar",
+    });
+  }
+};
