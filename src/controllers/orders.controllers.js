@@ -1,5 +1,6 @@
 import { json } from "express";
 import Order from "../models/order.js";
+import { validationResult } from "express-validator";
 
 export const listOrders = async (req, res) => {
   try {
@@ -17,6 +18,14 @@ export const listOrders = async (req, res) => {
 
 export const createOrders = async (req, res) => {
   try {
+
+    const errors = validationResult(req);
+    //errors.isEmpty() true: si esta ok, false: al menos 1 rror
+    if(!errors.isEmpty()){
+      return res.status(400).json({
+        errors: errors.array()
+      })
+    }
 
     console.log(req.body);
     const newOrder = new Order(req.body);

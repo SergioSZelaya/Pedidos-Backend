@@ -6,10 +6,17 @@ import {
   getOrders,
   listOrders,
 } from "../controllers/orders.controllers.js";
+import { check } from "express-validator";
 
 const router = Router();
 
-router.route("/order").get(listOrders).post(createOrders);
+router
+  .route("/order")
+  .get(listOrders)
+  .post(
+    [check("user").notEmpty().withMessage("Es obligatorio tener un usuario")],
+    createOrders
+  );
 router
   .route("/order/:idOrder")
   .put(editOrders)
