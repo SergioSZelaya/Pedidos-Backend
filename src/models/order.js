@@ -29,8 +29,9 @@ const orderSchema = new Schema({
   },
 
   state: {
-    type: String,
+    type: Boolean,
     required: true,
+    default: true,
   },
 
   detail: {
