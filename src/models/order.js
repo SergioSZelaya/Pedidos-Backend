@@ -18,12 +18,9 @@ const orderSchema = new Schema({
     required: true,
     validate: {
       validator: function (products) {
-        // Esta función verifica si la cadena contiene productos separados por comas.
-        // La expresión regular /^[\w\s]+(,[\w\s]+)*$/ verifica el formato.
         return /^[\w\s]+(,[\w\s]+)*$/.test(products);
       },
       message: "El formato de productos debe ser 'producto1, producto2, ...'.",
-      // El mensaje de error que se mostrará si la validación falla.
     },
   },
   cost: {
@@ -35,9 +32,13 @@ const orderSchema = new Schema({
     type: String,
     required: true,
   },
+
+  detail: {
+    type: String,
+    required: true,
+  },
 });
 
-//genero modelo
 const Order = mongoose.model("order", orderSchema);
 
 export default Order;

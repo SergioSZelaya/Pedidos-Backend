@@ -3,7 +3,7 @@ import Order from "../models/order.js";
 
 export const listOrders = async (req, res) => {
   try {
-    //ir a la bd y pedir los productos
+
     const orderList = await Order.find();
     res.status(200).json(orderList);
   } catch (error) {
@@ -17,11 +17,10 @@ export const listOrders = async (req, res) => {
 
 export const createOrders = async (req, res) => {
   try {
-    //ir a la bd y pedir los productos
-    //aqui los datos deberian estar validados
+
     console.log(req.body);
     const newOrder = new Order(req.body);
-    //guardar el pedido nuevo en la BD
+
     await newOrder.save();
     res.status(201).json({
       mensaje: "El pedido se creó correctamente",
@@ -36,9 +35,6 @@ export const createOrders = async (req, res) => {
 
 export const editOrders = async (req, res) => {
   try {
-    //ir a la bd y pedir los productos
-    //aqui los datos deberian estar validados
-    //extraer parametro ID de la ruta
 
     await Order.findByIdAndUpdate(req.params.idOrder, req.body);
 
