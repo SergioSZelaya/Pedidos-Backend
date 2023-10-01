@@ -16,12 +16,7 @@ export const tolistProducts = async (req, res) => {
 export const createProducts = async (req, res) => {
   console.log(req.body);
   try {
-    const mistake = validationResult(req);
-    if (!mistake.isEmpty()) {
-      return res.status(400).json({
-        mistakes: mistake.array(),
-      });
-    }
+ 
     const productNew = new Product(req.body);
 
     await productNew.save();
