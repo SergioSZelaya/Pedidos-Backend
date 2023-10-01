@@ -8,13 +8,18 @@ import {
   obtainProducts,
   tolistProducts,
 } from "../controllers/products.controllers.js";
+import { check } from "express-validator";
+import validationProduct from "../helpers/validationProduct.js";
 
 const router = Router();
 
-router.route("/product").get(tolistProducts).post(createProducts);
+router
+  .route("/product")
+  .get(tolistProducts)
+  .post(validationProduct, createProducts);
 router
   .route("/product/:id")
-  .put(editProducts)
+  .put(validationProduct, editProducts)
   .delete(deleteProducts)
   .get(obtainProducts);
 export default router;

@@ -1,3 +1,4 @@
+import { validationResult } from "express-validator";
 import Product from "../models/product.js";
 
 export const tolistProducts = async (req, res) => {
@@ -7,7 +8,7 @@ export const tolistProducts = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(404).json({
-      mensaje: "error when listing products",
+      mensaje: "error al listar productos",
     });
   }
 };
@@ -19,12 +20,12 @@ export const createProducts = async (req, res) => {
 
     await productNew.save();
     res.status(201).json({
-      mensaje: "the product was created correctly",
+      mensaje: "El producto fue creado correctamente",
     });
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      mensaje: "the product was not created correctly",
+      mensaje: "El producto no fue creado correctamente",
     });
   }
 };
@@ -35,12 +36,12 @@ export const editProducts = async (req, res) => {
     const productsNew = new Product(req.body);
 
     res.status(200).json({
-      mensaje: "the product was edited correctly",
+      mensaje: "El producto fue editado correctamente",
     });
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      mensaje: "cannot edit the product",
+      mensaje: "El producto no se edito",
     });
   }
 };
@@ -50,12 +51,12 @@ export const deleteProducts = async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
 
     res.status(200).json({
-      mensaje: "the product was disposed of correctly",
+      mensaje: "El producto fue eliminado correctamente",
     });
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      mensaje: "cannot delete the product",
+      mensaje: "El producto no se pudo eliminar",
     });
   }
 };
@@ -68,7 +69,7 @@ export const obtainProducts = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      mensaje: "could not get the product",
+      mensaje: "no pude obtener el producto",
     });
   }
 };
