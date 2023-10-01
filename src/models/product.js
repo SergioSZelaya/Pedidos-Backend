@@ -3,13 +3,9 @@ import mongoose, { Schema } from "mongoose";
 const productSchema = new Schema({
   nameProduct: {
     type: String,
-
     required: true,
-
     unique: true,
-
     minLength: 2,
-
     maxLength: 50,
   },
   price: {
