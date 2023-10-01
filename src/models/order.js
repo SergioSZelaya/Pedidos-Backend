@@ -4,7 +4,6 @@ const orderSchema = new Schema({
   user: {
     type: String,
     required: true,
-    unique: true,
     minLength: 4,
     maxLength: 12,
   },
@@ -26,17 +25,18 @@ const orderSchema = new Schema({
   cost: {
     type: Number,
     required: true,
+    min:1,
+    max:1000000
   },
 
   state: {
-    type: Boolean,
+    type: String,
     required: true,
-    default: true,
+    enum: ["Pendiente", "Realizado"]
   },
 
   detail: {
     type: String,
-    required: true,
   },
 });
 
