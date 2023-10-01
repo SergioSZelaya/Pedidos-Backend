@@ -32,6 +32,9 @@ const validationProduct = [
     .withMessage("La categoria es un dato obligatorio")
     .isIn(["sandwiches", "pizzas", "picadas", "bebidas"])
     .withMessage("Debe ingresar una categoria valida"),
+     check("description")
+    .notEmpty()
+    .withMessage("La descripcion es un dato obligatorio"),
 
   (req, res, next) => {
     resultValidation(req, res, next);
