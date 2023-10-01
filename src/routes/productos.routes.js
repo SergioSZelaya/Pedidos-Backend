@@ -6,7 +6,7 @@ import {
   obtainProducts,
   tolistProducts,
 } from "../controllers/products.controllers.js";
-import { check } from "express-validator";
+//import { check } from "express-validator";
 import validationProduct from "../helpers/validationProduct.js";
 
 const router = Router();
