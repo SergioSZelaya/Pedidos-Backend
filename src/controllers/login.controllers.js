@@ -17,7 +17,7 @@ export const login = async (req, res) => {
      res.status(200).json({
       mensaje: "El usuario existe",
       uid: user._id,
-      nombre: user.nickName,
+      nombre: user.nickname,
     });
   } catch (error) {
     console.log(error);

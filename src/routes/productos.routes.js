@@ -1,5 +1,3 @@
-//aqui van las rutas que se deben unir con el index y se trabajan en conjunto con los controllers. POr ejemplo:
-
 import { Router } from "express";
 import {
   createProducts,

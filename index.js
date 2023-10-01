@@ -2,14 +2,11 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import "dotenv/config";
-
 import productoRouter from "./src/routes/productos.routes.js";
 import "./src/database/database.js";
-
-
-import productoRouter from "./src/routes/productos.routes.js"; //esto se cambia (productoRouter)porque hay que crear ruta y controlador para usuarios
 import orderRouter from "./src/routes/orders.routes.js";
 import userRouter from "./src/routes/users.routes.js";
+import loginRouter from "./src/routes/usuario.routes.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -41,4 +38,5 @@ app.use(morgan("dev")); //nos da mas informacion en la terminal
 app.use("/api", productoRouter); //esto se cambia porque hay que crear ruta y controlador para usuarios
 app.use("/api", orderRouter);
 app.use("/api/usuario", userRouter);
+app.use("/api", loginRouter);
 

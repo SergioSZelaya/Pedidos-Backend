@@ -5,7 +5,7 @@ const validationRes = (req, res, next) => {
   //errors.isEmpty() true: si esta todo ok, false: si hay errores
   if (!errors.isEmpty()) {
     return res.status(400).json({
-      errores: errors.array(),
+      errors: errors.array(),
     });
   }
   next();
