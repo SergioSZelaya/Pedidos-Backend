@@ -32,7 +32,7 @@ const validationUser = [
     .isIn(["usuario", "administrador"])
     .withMessage("Debe de ingresar un rol valida"),
 
-  //Al final de todos los check llamamos al archivo de resultado de validaciones
+
   (req, res, next) => {
     resultValidation(req, res, next);
   },

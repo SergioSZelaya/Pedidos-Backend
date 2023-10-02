@@ -6,7 +6,6 @@ import {
   getOrders,
   listOrders,
 } from "../controllers/orders.controllers.js";
-import { check } from "express-validator";
 import validationOrder from "../helpers/validationOrder.js";
 
 const router = Router();

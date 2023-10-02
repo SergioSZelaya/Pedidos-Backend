@@ -15,12 +15,6 @@ const orderSchema = new Schema({
   products: {
     type: String,
     required: true,
-    validate: {
-      validator: function (products) {
-        return /^[\w\s]+(,[\w\s]+)*$/.test(products);
-      },
-      message: "El formato de productos debe ser 'producto1, producto2, ...'.",
-    },
   },
   cost: {
     type: Number,

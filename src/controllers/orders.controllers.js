@@ -17,9 +17,7 @@ export const listOrders = async (req, res) => {
 
 export const createOrders = async (req, res) => {
   try {
-    //trabajar datos de validacion
     const errors = validationResult(req);
-    //errors.isEmpty() true: si esta ok, false: al menos 1 error
     if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: errors.array(),
