@@ -30,12 +30,8 @@ app.use(express.urlencoded({ extended: true })); // le pido ayuda a express para
 app.use(morgan("dev")); //nos da mas informacion en la terminal
 
 //agregar archivo estatico
-      app.use(
-  express.static(
-    path.join(_dirname, '/public')));
+app.use(express.static(path.join(_dirname, "/public")));
 //3- crear las rutas (siempre despues de los middlewares)
 // http://localhost:4000/api/producto
 app.use("/api", productoRouter, loginRouter, orderRouter); //esto se cambia porque hay que crear ruta y controlador para usuarios
 app.use("/api/usuario", userRouter);
-
-
