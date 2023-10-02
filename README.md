@@ -35,23 +35,23 @@ git https://github.com/SergioSZelaya/Pedidos-Backend.git
 
 - Asegúrate de tener Node.js y MongoDB instalados en tu máquina.
 
-- Configura las variables de entorno en un archivo .env (puerto, conexión a la base de datos, secret key para JWT, etc.).
+- Configura las variables de entorno en un archivo .env (puerto, conexión a la base de datos, etc.).
 
 - Ejecuta npm install para instalar las dependencias.
 
-- Ejecuta npm start para iniciar el servidor.
+- Ejecuta npm run dev para iniciar el servidor.
 
 - Accede al backend desde tu aplicación de frontend.
 
 ## Endpoints API
 
-POST /api/usuarios: Registro de usuarios.
-POST /api/login: Inicio de sesión de usuarios.
-GET /api/products: Obtener todos los productos.
-GET /api/products/:id: Obtener un producto por su ID.
-POST /api/products/crear un nuevo producto (solo administradores).
-PUT /api/products/:id: Actualizar un producto (solo administradores).
-DELETE /api/products/:id: Eliminar un producto (solo administradores).
+- POST /api/usuarios: Registro de usuarios.
+- POST /api/login: Inicio de sesión de usuarios.
+- GET /api/products: Obtener todos los productos.
+- GET /api/products/:id: Obtener un producto por su ID.
+- POST /api/products/crear un nuevo producto (solo administradores).
+- PUT /api/products/:id: Actualizar un producto (solo administradores).
+- DELETE /api/products/:id: Eliminar un producto (solo administradores).
 
 ## Autores del proyecto
 
