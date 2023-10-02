@@ -14,10 +14,11 @@ export const login = async (req, res) => {
     if (!passwordValido) {
       return res.status(400).json({ mensaje: "correo o Password invalido" });
     }
-     res.status(200).json({
+    res.status(200).json({
       mensaje: "El usuario existe",
       uid: user._id,
       nombre: user.nickName,
+      rol: user.rol,
     });
   } catch (error) {
     console.log(error);
